@@ -1,0 +1,56 @@
+@startuml
+
+class HealthIncident {
+  - server : Server
+  - rack : Rack
+  - unit : int
+  - action : RequestAction
+}
+enum RequestAction {
+  + INSPECT
+  + REPLACE
+}
+
+class Server
+class Warranty
+class Rack {
+  + getNumUnits() : int
+  + getServerForUnit(int) : Server
+  + getHealth() : Map<Server, Double>
+}
+class RackMonitor #66EE66 {
+  + monitorRacks() : void
+  + getIncidents() : Set<HealthIncident>
+}
+class WarrantyClient {
+  + getWarrantyForServer(Server) : Warranty
+}
+class WingnutClient {
+  + requestInspection(Rack, int) : void
+  + requestReplacement(Rack, int, Warranty) : void
+}
+
+class RackMonitorException<<exception>>
+class RackMonitorDependencyException<<exception>>
+class WarrantyNotFoundException<<exception>>
+class WingnutClientException<<exception>>
+class WingnutServiceException<<exception>>
+class NoSuchServerException<<exception>>
+
+RackMonitorException .. RackMonitor
+RackMonitorDependencyException .. RackMonitor
+
+HealthIncident -- RequestAction
+RackMonitor *-- Rack
+RackMonitor *-- WarrantyClient
+RackMonitor *-- WingnutClient
+Rack o-- Server
+Server . Warranty
+WarrantyClient *-- Warranty
+
+Rack ... NoSuchServerException
+WarrantyClient ... WarrantyNotFoundException
+WingnutClient ... WingnutClientException
+WingnutClient ... WingnutServiceException
+
+@enduml
