@@ -1,7 +1,7 @@
 ### Class Under Test Role
 
 Pull the latest `ATAClassroomSnippets` revisions and examine the *code* in
-`com.amazon.ata.mocking.classroom.metamocking.ATALearningProcess`.
+`com.amazon.ata.mocking.metamocking.ATALearningProcess`.
 
 For these activities, you will be the `ATALearningProcess` object,
 your partner(s) will be the mock objects,

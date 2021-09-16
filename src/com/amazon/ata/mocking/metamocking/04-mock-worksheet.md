@@ -1,8 +1,3 @@
-<!-- Prints six mock object sheets, three per side of
-     one sheet of A4 portrait paper -->
-     
----
-
 ### ClassroomDao @ DA0
    | Method              | Parameters        | Result| Uses |
    |---------------------|-------------------|-------|-----|

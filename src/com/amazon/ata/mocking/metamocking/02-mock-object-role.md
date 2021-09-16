@@ -4,7 +4,7 @@ You'll execute the same code together, taking on the roles of whatever mocks are
 Your partner will be the `ATALearningProcess` that you're testing.
 
 Pull down the latest `ATAClassroomSnippets` revisions and examine the *test* in
-`com.amazon.ata.mocking.classroom.metamocking.ActivityA`.
+`com.amazon.ata.mocking.metamocking.ActivityA`.
 
 * Start executing the `@BeforeEach`
 

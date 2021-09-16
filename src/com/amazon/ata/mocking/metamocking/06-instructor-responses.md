@@ -1,5 +1,4 @@
-<!-- Prints the four instructor responses on one side of
-     one sheet of A4 portrait paper -->
+
    | *Response* Method     | Parameters | Result|
    |------|--------|:--------------------:|
    | getClarity(): int   |  none  |  40   |
