@@ -1,9 +1,3 @@
-build/
-*.iml
-.idea/
-/configuration/stack-exec
-mounts/events/prepare_shipment.json
-
 # Ignore Gradle project-specific cache directory
 .gradle
 
@@ -56,6 +50,7 @@ target/
 *.iml
 *.ipr
 
+
 # .NET
 obj/
 bin/
@@ -87,3 +82,8 @@ cypress/videos
 /tests/e2e/videos/
 /tests/e2e/screenshots/
 
+build/
+*.iml
+.idea/
+/configuration/stack-exec
+mounts/events/prepare_shipment.json
