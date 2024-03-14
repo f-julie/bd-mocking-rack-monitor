@@ -1,0 +1,78 @@
+@startuml
+
+ class SubscriptionLibrary {
+   - subscriptionDao : SubscriptionDao
+   - emailServiceClient : EmailServiceClient
+
+   + addMonthlySubscription() throws InvalidInputException
+   + cancelSubscription() throws InvalidInputException
+ }
+
+ class SubscriptionDao {
+   - subscriptions : Map<String, Subscription>
+
+   + createSubscription() : boolean
+   + getSubscription() : Subscription
+   + updateSubscription() : Subscription
+   + deleteSubscription() : Subscription
+ }
+
+ class EmailServiceClient {
+   - emailService: EmailService
+   - customerDao : CustomerDao
+
+   + sendNewSubscriptionEmail() : boolean
+   + sendCancelledSubscriptionEmail() : boolean
+ }
+
+ class CustomerDao {
+   - customers: Map<String,Customer>
+
+   + createCustomer() : boolean
+   + getCustomer() : Customer
+   + updateCustomer() : Customer
+   + deleteCustomer() : Customer
+ }
+
+ class EmailService #LightGray {
+   + sendEmail()
+ }
+
+ interface Subscription {
+   + getSubscriptionId() : String
+   + getAsin() : String
+   + getCustomerId() : String
+ }
+
+ class MonthlySubscription {
+   - asin: String
+   - subscriptionId : String
+   - customerId : String
+
+   + equals() : boolean
+   + hashCode() : int
+   + toString() : String
+ }
+
+ class Customer {
+   - customerId : String
+   - emailAddress : String
+   - firstName : String
+   - lastName : String
+
+   + getFullName() : String
+   + equals() : boolean
+   + hashCode() : int
+   + toString() : String
+ }
+
+
+
+ SubscriptionLibrary *-- SubscriptionDao
+ SubscriptionLibrary *-- EmailServiceClient
+ EmailServiceClient *-- CustomerDao
+ EmailServiceClient *-- EmailService
+
+ MonthlySubscription ..|> Subscription
+
+@enduml
