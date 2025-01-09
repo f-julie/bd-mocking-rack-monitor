@@ -34,11 +34,11 @@ public class RackMonitor {
     private final WarrantyClient warrantyClient;
     private final Set<HealthIncident> incidents = new HashSet<>();
 
-    public RackMonitor(Set<Rack> racks,
-                       WingnutClient wingnutClient,
-                       WarrantyClient warrantyClient,
-                       double inspectHealth,
-                       double replaceHealth) {
+    public RackMonitor(Set<Rack> racks,                 // Racks that should be monitored
+                       WingnutClient wingnutClient,     // WingnutClient to use, if needed
+                       WarrantyClient warrantyClient,   // WarrantyClient to use, if needed
+                       double inspectHealth,            // Inspect (shaky) threshold value
+                       double replaceHealth) {          // Replacement (unhealthy) threshold value
 
         this.racks = racks;
         this.wingnutClient = wingnutClient;
